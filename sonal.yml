@@ -2,8 +2,7 @@
   vars:
     sonarqube_config__custom:
       # Change the default port to 8080
-      sonar.web.port: 8080
-
+      sonar.web.port: 80
   roles:
     - install-java
     - install-mysql
