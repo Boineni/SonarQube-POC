@@ -2,7 +2,18 @@
   vars:
     sonarqube_config__custom:
       # Change the default port to 8080
-      sonar.web.port: 80
+      sonar.web.port: 9009
+      sonar.username: sonarqube
+      sonar.password: sonarqube
+  tasks:
+    - name: Create database user
+      mysql_user: user=testing password=12345 priv=*.*:ALL state=present
+
+    - name: Create database
+      mysql_db: db=sonarpoc state=present
+
+   
+
   roles:
     - install-java
     - install-mysql
