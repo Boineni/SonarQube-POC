@@ -1,5 +1,0 @@
-- hosts: all
-  roles:
-    - install-java
-    - install-mysql
-    - install-sonar
