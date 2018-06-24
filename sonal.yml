@@ -1,4 +1,5 @@
 - hosts: all
+  become: yes
   vars:
     sonarqube_config__custom:
       # Change the default port to 8080

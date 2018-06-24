@@ -58,8 +58,7 @@
     src: sonar.properties.j2
     dest: "{{ sonarqube_conf_dir }}/sonar.properties"
   notify:
-    - restart sonar
-
+    - start sonar
 - include: configure.yml
 
 - name: Ensure Sonar is running and set to start on boot.
@@ -69,5 +68,5 @@
   pause: seconds=180
   when: sonar_symlink.changed
 
-#- name: Make sure Sonar is responding on the configured port.
-#  wait_for: port=9007 delay=3 timeout=300
+- name: Make sure Sonar is responding on the configured port.
+  wait_for: port=9007 delay=3 timeout=300
